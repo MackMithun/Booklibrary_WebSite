@@ -8,9 +8,17 @@ namespace Booklibrary_WebSite.Controllerz
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "mithun is good boy";
+            return View();
+        }
+        public ActionResult Aboutus()
+        {
+            return View();
+        }
+        public ViewResult Contactus()
+        {
+            return View();
         }
     }
 }

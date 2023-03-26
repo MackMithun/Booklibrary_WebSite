@@ -1,0 +1,31 @@
+﻿@*@model IEnumerable<Booklibrary_WebSite.Models.BookModel>*@
+@model IEnumerable<BookModel>
+<head>
+    <link href="~/css/bookCard.css" rel="stylesheet" />
+</head>
+<div class="ag-format-container">
+    <div class="ag-courses_box">
+        @foreach (var book in Model)
+        {
+
+            <div class="ag-courses_item">
+                <a href="/book/getbook/@book.Id" class="ag-courses-item_link">
+                    <div class="ag-courses-item_bg"></div>
+
+                    <div class="ag-courses-item_title">
+                         @book.Id  @book.Title
+                    </div>
+
+                    <div class="ag-courses-item_date-box">
+                        Author Name:
+                        <span class="ag-courses-item_date">
+                            @book.Author
+                        </span>
+                    </div>
+                </a>
+            </div>
+        }
+
+
+    </div>
+</div>

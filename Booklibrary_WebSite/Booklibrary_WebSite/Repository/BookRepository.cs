@@ -12,7 +12,7 @@ namespace Booklibrary_WebSite.Repository
         {
             return DataSource();
         }
-        public BookModel GetAllBooks(int id)
+        public BookModel GetAllBookByID(int id)
         {
             return DataSource().Where(x=>x.Id==id).FirstOrDefault();
         }

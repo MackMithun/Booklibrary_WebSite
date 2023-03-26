@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Booklibrary_WebSite.Models;
+using Booklibrary_WebSite.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +10,25 @@ namespace Booklibrary_WebSite.Controllerz
 {
     public class BookController : Controller
     {
-        public string  GetAllBooks()
+        private readonly BookRepository _Book =null;
+        public BookController()
         {
-            return "All Books";
+            _Book = new BookRepository();
         }
-        public string GetBook(int id)
+        public ViewResult  GetAllBooks()
         {
-            return "All Books "+id;
+            var data = _Book.GetAllBooks();
+            return View(data);
+        }
+        public ViewResult GetBook(int id)
+        {
+           var data =_Book.GetAllBookByID(id);
+            return View(data);
         }
 
+        public List<BookModel> SerachBook(string bookName,string AuthorName)
+        {
+            return _Book.searchbook(bookName, AuthorName);
+        }
     }
 }
